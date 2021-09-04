@@ -1,9 +1,11 @@
-import * as functions from "firebase-functions";
+import * as express from 'express';
+import * as functions from 'firebase-functions';
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+const app = express();
+
+const talentRoutes = require('./routes/talent-routes');
+
+
+app.use('/talents', talentRoutes);
+
+exports.api = functions.https.onRequest(app);
