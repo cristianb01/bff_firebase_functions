@@ -6,7 +6,7 @@ const collection = db.collection('talent');
 
 
 
-export async function listHighlightedTalentsAsync() {
+export async function listRelevantTalentsAsync() {
     const docsSnap = await collection.where('relevance', '>=', 7).get();
 
     return docsSnap.docs.map(doc => doc.data());

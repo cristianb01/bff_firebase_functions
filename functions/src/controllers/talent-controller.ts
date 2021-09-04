@@ -1,9 +1,9 @@
 import * as talentService from '../services/talent-service'
 
 
-const highlighted = async (req: any, res: any) => {
-    const highlightedTalents = await talentService.listHighlightedTalentsAsync();
-    res.send(highlightedTalents);
+const relevant = async (req: any, res: any) => {
+    const relevantTalents = await talentService.listRelevantTalentsAsync();
+    res.send(relevantTalents);
 };
 
 const news = async (req: any, res: any) => {
@@ -12,6 +12,6 @@ const news = async (req: any, res: any) => {
 }
 
 module.exports = {
-    highlighted,
+    relevant,
     news
 };
